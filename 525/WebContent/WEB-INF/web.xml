@@ -9,4 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>frontC</servlet-name>
+  	<servlet-class>com.hb.controller.FrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>frontC</servlet-name>
+  	<url-pattern>/main.do</url-pattern>
+  </servlet-mapping>
 </web-app>
