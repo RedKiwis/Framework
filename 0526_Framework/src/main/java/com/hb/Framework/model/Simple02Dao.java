@@ -49,10 +49,25 @@ public class Simple02Dao {
 		return list;
 	}
 	
+	public int insertOne(Simple02Vo vo) throws SQLException {
+		String sql = "insert into simple2(name,nalja,pay) values (?,to_char('"+vo.getNalja()+"','yy-mm-dd'),?)";
+		
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getName());
+			pstmt.setInt(2, vo.getPay());
+			return pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		
+	}
+	
 	public void close() throws SQLException{
 				if(rs != null)rs.close();
 				if(pstmt != null)pstmt.close();
 				if(conn != null)conn.close();
 
 	}
+
 }
